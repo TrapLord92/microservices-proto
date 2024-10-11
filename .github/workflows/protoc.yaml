@@ -1,4 +1,9 @@
 name: "Protocol Buffer Go Stubs Generation"
+
+# Set permissions for the workflow
+permissions:
+  contents: write  # Allow the workflow to push to the repository
+
 on:
   push:
     branches:
@@ -29,10 +34,10 @@ jobs:
           go mod init github.com/TrapLord92/microservices-proto
           go mod tidy
 
-      # Step 4: Commit and push the generated files back to the repository
+      # Step 4: Commit and Push Changes using the GITHUB_TOKEN
       - name: Commit and Push Changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub Token for authentication
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically available GitHub token for authentication
         run: |
           git config --global user.email "traplord345@gmail.com"
           git config --global user.name "TrapLord92"
