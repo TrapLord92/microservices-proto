@@ -16,12 +16,12 @@ jobs:
     steps:
       # Step 1: Install Go
       - name: Install Go
-        uses: actions/setup-go@v4  # Updated to v3
+        uses: actions/setup-go@v3  # Use the latest version of setup-go
         with:
           go-version: 1.23
       
       # Step 2: Checkout the repository
-      - uses: actions/checkout@v4  # Updated to v3
+      - uses: actions/checkout@v4  # Updated to v4
 
       # Step 3: Generate Golang protobuf and gRPC code
       - name: "Generate for Golang"
